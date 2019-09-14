@@ -16,7 +16,8 @@ same genre are classified together.
 
 
 This project includes-
-1. Dataset extraction
+1. Dataset extraction-
+
       a. A music genre is a conventional category that identifies pieces of music as
           belonging to a shared tradition or set of conventions. It is to be distinguished from
           musical form and musical style. The features extracted from these waves can
@@ -59,7 +60,8 @@ This project includes-
     e. Logistic regression can also be used to classify data into more than two classes
        but it’s discussion is beyond the scope of this documentation.
 
-3. Gradient descent
+3. Gradient descent:-
+
     a. Gradient descent is a first-order iterative optimization algorithm for finding
        the minimum of a function.
        
