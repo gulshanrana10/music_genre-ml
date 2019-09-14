@@ -1,2 +1,7 @@
-# music_genre-ml
-to classify various music genre using logistic regrr
+AIM- To classify the music genre using Machine Learning Technique
+WORKFLOW-
+1. DATA EXTRACTION
+2. DATA CLEANING AND FEATURE ENGINEERING
+3. RESEARCH STUDY AND COURSE COMPLETION
+4. TRAIN MODELS
+
