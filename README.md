@@ -21,21 +21,26 @@ This project includes-
           belonging to a shared tradition or set of conventions. It is to be distinguished from
           musical form and musical style. The features extracted from these waves can
           help the machine distinguish between them.
+          
       b. The features in this dataset are extracted from the GTZAN genre collection
           provided at the site of Marsyas (Music Analysis, Retrieval and Synthesis for
           Audio Signals). It is an open source software framework for audio processing
           with specific emphasis on Music Information Retrieval applications.
+          
       c. It consists of 1000 audio tracks each 30 seconds long. It contains 10 genres,
           each represented by 100 tracks. The tracks are all 22050 Hz Mono 16-bit audio
           files in .wav format.
+          
       d. Features are extracted using libROSA library. LibROSA is a python package for
           music and audio analysis. It provides the building blocks necessary to create
           music information retrieval systems. The extracted features were saved in a csv
           file.
 2. Logistic regression:-
     a. Logistic regression is used used to classify data into groups(binary classification
-        i.e two groups) .
+        i.e two groups).
+        
     b. Logistic function is a sigmoid function which gives values in between 0 and 1.
+    
     c. Logistic regression includes further many subparts:-
         i. Hypothesis representation- Hypothesis is a function which we will feed
            into machine and the machine will process the parameters using that
@@ -50,12 +55,14 @@ This project includes-
             program.
 
     d. The above image represents the sigmoid function and its equation.
+    
     e. Logistic regression can also be used to classify data into more than two classes
        but it’s discussion is beyond the scope of this documentation.
 
 3. Gradient descent
     a. Gradient descent is a first-order iterative optimization algorithm for finding
        the minimum of a function.
+       
     b. To find a local minimum of a function using gradient descent, one takes
        steps proportional to the negative of the gradient (or approximate gradient)
        of the function at the current point.
