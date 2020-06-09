@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jul 30 19:06:23 2018
-
 @author: Gulshan Rana
 """
 
@@ -9,12 +8,17 @@ Created on Mon Jul 30 19:06:23 2018
 #import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import train_test_split
-
 #import scipy as sc
 from sympy import Symbol,Derivative
 sym=Symbol
 der=Derivative
 
+def sigmoid(z):
+     return(1/(1+np.exp(-z)))
+
+def hypothesis(x,theta):
+    h=np.dot(x,theta)
+    return(sigmoid(h))
 #hdir(C:\Users\Gulshan Rana\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit))
 
 #add= "C:\Users\Gulshan Rana\Desktop\data_2ngenre.csv"
@@ -24,34 +28,29 @@ dataset= np.genfromtxt("data_2genre.csv", delimiter=",")
 dataset= dataset[1:,]
 #print(dataset)
 
-x=dataset[0:,1:-1]
+x= dataset[0:,1:-1]
 y_raw= dataset[0: , -1]
 #print(x.shape, y_raw.shape)
 #print(y_raw)
-
-#print(x)
-y= np.zeros((200, 1))    #rreason of double brkt
-for i in range(200):
-    y[i][0]= y_raw[i]
+n=len(y)
+print(x)
+y= np.zeros((n, 1))    #rreason of double brkt
+y=y.reshape(y.shape[0],1)          #RESHAPING FOR SECONDARY NUMPY DIMENSION
  
-x_train, x_test, y_train, y_test= train_test_split(x, y, test_size=0.2)
-#print(y.shape)
-def sigmoid(z):
-     return(1/(1+np.exp(-z)))
+x_train, x_test, y_train, y_test= train_test_split(x, y, test_size=0.2)  # SPLITTING DATASET IN RATIO OF 4:1
 
-def hypothesis(x,theta):
-    h=np.dot(x,theta)
-    return(sigmoid(h))
-#print(x_train)
-theta=np.random.rand(x_train.shape[1],1)  #28*1
-H=hypothesis(x_train*30, theta)  #H=h
-alpha=0.01
-#print(H)
+     
+
+
+theta=np.random.rand(x_train.shape[1],1)  #   28*1
+H=hypothesis(x_train, theta)       #H=h
+alpha=0.01      #LEARNING RATE
+
 m= len(y)
 #print(m)
 #print((h-y).shape,x.shape)
 
-nditer=2000
+nditer=2000       #NUMBER OF ITERATION(LOOPING)
 
 for i in range(nditer):
     H=hypothesis(x_train,theta)
@@ -59,10 +58,10 @@ for i in range(nditer):
     
 
 op=hypothesis(x_test,theta)
-print(op)
+threshold=0.91
 c=0;
 for i in range(op.shape[0]):
-    if op[i][0]>0.91:
+    if op[i][0]>threshold:         #THRESHOLD=0.91
        op[i][0]=1;
     else:
         op[i][0]=0;
@@ -86,18 +85,12 @@ print(c/op.shape[0])
          J = J +(-(1/m)*((y*(np.log(h[i]))+((1-y)*(np.log(1-h[i]))))
     return J 
 print(cost(y_train,H,x_train,1000))
-
 for i in range(201):
     H= np.append(sigmoid(h[i]))
         
        
         
-
 X = list(csv.reader(open('data_2ngenre.csv','r')))
-
-
-
-
 def sigma(i,j,f):
     i = input("enter the initial value of sigma(i): ")
     j = input("enter the final value of sigma(j): ")
@@ -105,9 +98,6 @@ def sigma(i,j,f):
     while i<(j+1):
         
         also to do mean normalisation,X=200*30,theta=1*30
-
-
-
 def mingrad(j,A):  j=cost fnc, A= learning rate
     p=0
     r=0
@@ -125,7 +115,3 @@ def mingrad(j,A):  j=cost fnc, A= learning rate
     return theta
 '''
      
-
-    
-        
-
